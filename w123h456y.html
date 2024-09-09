@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>body{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqq4wVQ5BIqb0n5wc0yLhwC_RdQYFLcadkIg&s");
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+        
+      div {
+        background-color: blanchedalmond;
+        border:4px solid blanchedalmond;
+        height: 400px;
+        width: 300px;
+      }
+
+      h2{
+        color: rgb(196, 160, 190);
+      }
+
+      .labell {
+padding-top: 20px;
+      }
+
+
+button {
+background-color: lightgreen;
+color: white;
+    }
+     
+    </style> 
+
+</head>
+<body> <center>
+ 
+    <h2> Password Validation form </h2>  
+
+<div>
+    
+    <label>Username</label><br>  <br> 
+
+    <input type="text" required/><br> <br> 
+
+    <label>Password</label><br>  <br> 
+
+    <input id="pass" type="password" required/><br> <br>
+
+    <p id="result"></p>
+
+    <p> Password must contain: </p>
+    <p>At least 1 lower-case letter,
+        <br>
+        At least 1 upper-case letter,
+        <br>
+        At least 1 number and
+        <br>
+        A minimum of five letters!
+
+    </p>
+
+    <button onclick="validatePassword()"> Submit </button>
+
+
+
+
+</div>
+
+</center>
+<script>function validatePassword() {
+  const password = document.getElementById("pass").value;
+  const result = document.getElementById("result");
+
+  const hasLowercase = /[a-z]/.test(password);
+  const hasUppercase = /[A-Z]/.test(password); // Corrected regular expression
+  const hasNumber = /\d/.test(password);
+  const hasMinLength = password.length >= 8;
+
+  if (hasLowercase && hasUppercase && hasNumber && hasMinLength) {
+    result.style.color = "green";
+    result.textContent = "Password is valid!"; // Use textContent (property name)
+  } else {
+    result.style.color = "red";
+    result.textContent = "Password is invalid!";
+  }
+}</script>
+</body>
+</html>
